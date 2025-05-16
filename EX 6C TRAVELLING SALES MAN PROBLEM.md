@@ -1,49 +1,39 @@
-# EX 6C TRAVELLING SALES MAN PROBLEM
+# EX 6D BRUTE FORCE ALGORITHM
 ## DATE:
 ## AIM:
-To Solve Travelling Sales man Problem for the following graph.
+To write a python program using brute force method of searching for the given substring in the main string.
 
 ## Algorithm
-1. List vertices: Exclude the start vertex and create a list of other vertices.
-2. Generate all routes: Find all possible ways to visit the vertices.
-3. Calculate path cost: For each route, calculate the total travel cost (including returning to the start).
-4. Track minimum cost: Keep track of the lowest cost found.
-5. Return result: Return the minimum cost after checking all routes.  
+1.Start from index 0 in the main string and try to match the substring at every position.
 
+2.Compare characters one by one from the current position in the main string to the substring.
+
+3.If all characters match, return the current index as the starting point of the match.
+
+4.If a mismatch is found, move to the next index in the main string and repeat.
+
+5.If no match is found after checking all valid positions, return -1.
 ## Program:
 ```python
+To implement the program using brute force method of searching for the given substring in the main string.
+
 Developed by: THIRISHA S
-Register Number: 212222230160
-```
-from sys import maxsize
-from itertools import permutations
-V = 4
-def travellingSalesmanProblem(graph, s):
-    vertex = []
-    for i in range(V):
-        if i != s:
-            vertex.append(i)
-    min_path = maxsize
-    next_permutation=permutations(vertex)
-    
-    for i in next_permutation:
-        current_pathweight = 0
-        k = s
-        for j in i:
-            current_pathweight += graph[k][j]
-            k = j
-        current_pathweight += graph[k][s]
-        min_path = min(min_path, current_pathweight)
-        return min_path
-  if __name__ == "__main__":
-    graph = [[0, 10, 15, 20], [10, 0, 35, 25],
-        [15, 35, 0, 30], [20, 25, 30, 0]]
-    s=0
-    print(travellingSalesmanProblem(graph, s))
+Register Number:212222230160
+
+import re
+def match(string,sub):
+    pattern = re.compile(str2)
+    r = pattern.search(str1)
+    while r:
+        print("Found at index {}".format(r.start()))
+        r = pattern.search(str1,r.start()+1)    
+
+str1=input()
+str2=input()
 ```
 
 ## Output:
-![Screenshot 2025-04-29 154615](https://github.com/user-attachments/assets/bd8d3101-9812-444a-abd6-4cf5648fc7d1)
+![image](https://github.com/user-attachments/assets/e91763b2-05e6-4a7f-bf7e-b72dbf723a4c)
 
 ## Result:
-Thus the program was executed successfully for finding the minimum cost to vist all cities.
+Thus the above program was executed successfully for searching the substring at respective index.
